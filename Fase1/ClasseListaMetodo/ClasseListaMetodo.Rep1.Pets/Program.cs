@@ -34,6 +34,7 @@ while(!sair)
     Console.WriteLine("1 - Cadastrar Pet");
     Console.WriteLine("2 - Listar Pets");
     Console.WriteLine("0 - Sair");
+
     Console.Write("\nEscolha uma opção do Menu: ");
     string opcao = Console.ReadLine() ?? "";
     switch (opcao)
