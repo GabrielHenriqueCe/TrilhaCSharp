@@ -1,0 +1,6 @@
+{
+  "enabledPlugins": {
+    "typescript-lsp@claude-plugins-official": false,
+    "claude-security@claude-plugins-official": false
+  }
+}
