@@ -47,7 +47,6 @@ while (!sair)
             try
             {
                 Console.Write("\nEscolha uma missão para concluir: ");
-                int nivelAntes = heroi.Nivel;
                 int escolha;
                 if (!int.TryParse(Console.ReadLine(), out escolha))
                 {
@@ -58,10 +57,10 @@ while (!sair)
                 {
                     throw new RangeDaEscolhaException(missoes);
                 }
-                heroi.FazerMissao(missoes[escolha - 1]);
+                int niveisGanhos = heroi.FazerMissao(missoes[escolha - 1]);
 
                 Console.Write($"\n{heroi.Nome} ganhou {missoes[escolha - 1].XpRecompensa} de XP. ");
-                if (nivelAntes < heroi.Nivel)
+                if (niveisGanhos > 0)
                 {
                     Console.Write($"Subiu para o Nível {heroi.Nivel}!");
                 }

@@ -34,21 +34,23 @@ namespace ClasseListaMetodo.Rep4.Missoes
             XP = 0;
         }
 
-        public void FazerMissao(Missao missao)
+        public int FazerMissao(Missao missao)
         {
             if (missao.MissaoConcluida)
                 throw new MissaoJaConcluidaException(missao);
             if (Nivel < missao.NivelMinimo)
                 throw new NivelAbaixoDoNecessarioException(this, missao);
             missao.ConcluirMissao();
-            Upar(missao);
+            return Upar(missao);
         }
 
-        private void Upar(Missao missao)
+        private int Upar(Missao missao)
         {
             int xp = XP + missao.XpRecompensa;
             XP = xp % 100;
-            Nivel += xp / 100;
+            int nivelGanho = xp / 100;
+            Nivel += nivelGanho;
+            return nivelGanho;
         }
 
         public string FichaDoHeroi()
